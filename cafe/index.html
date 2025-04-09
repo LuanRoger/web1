@@ -3,7 +3,101 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="view-transition" content="same-origin" />
     <title>Hora do Café</title>
+    <style>
+      /* Give elements unique view-transition-names to control their transitions */
+      h1 {
+        view-transition-name: page-title;
+      }
+
+      /* Remove the generic img rule that conflicts with specific images */
+      /* img {
+        view-transition-name: coffee-image;
+      } */
+
+      /* Use more specific CSS selectors instead of inline styles */
+      .house-coffee {
+        view-transition-name: house-coffee;
+      }
+
+      .milk-coffee {
+        view-transition-name: milk-coffee;
+      }
+
+      .cappuccino {
+        view-transition-name: cappuccino;
+      }
+
+      .chai-tea {
+        view-transition-name: chai-tea;
+      }
+
+      /* Customize transition styles for all coffee types */
+      ::view-transition-old(page-title) {
+        animation: 300ms ease-out both fade-out;
+      }
+
+      ::view-transition-new(page-title) {
+        animation: 500ms ease-in both slide-from-right;
+      }
+
+      ::view-transition-old(house-coffee),
+      ::view-transition-old(milk-coffee),
+      ::view-transition-old(cappuccino),
+      ::view-transition-old(chai-tea) {
+        animation: 400ms ease-out both zoom-out;
+      }
+
+      ::view-transition-new(house-coffee),
+      ::view-transition-new(milk-coffee),
+      ::view-transition-new(cappuccino),
+      ::view-transition-new(chai-tea) {
+        animation: 400ms ease-in both zoom-in;
+      }
+
+      /* Animation keyframes - unchanged */
+      @keyframes fade-out {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+
+      @keyframes slide-from-right {
+        from {
+          transform: translateX(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes zoom-out {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+      }
+
+      @keyframes zoom-in {
+        from {
+          transform: scale(1.2);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
   <body>
     <h1>Hora do café</h1>
@@ -16,6 +110,7 @@
               src="https://s2.glbimg.com/B0L-ZJSLxOBiF29yzYjXBxubcng=/780x440/e.glbimg.com/og/ed/f/original/2016/11/04/cappuccino_caseiro_ecodallaluna.jpg"
               width="200"
               height="120"
+              class="house-coffee"
             />
           </td>
           <td>
@@ -23,14 +118,15 @@
               src="https://minascomvoce.com.br/wp-content/uploads/2022/02/cafe-com-leite-Gabe-Raggio-Pixabay-970x550-1.jpg"
               width="200"
               height="120"
+              class="milk-coffee"
             />
           </td>
           <td>
-            <!-- https://static.itdg.com.br/images/1200-630/b0cd043352ab29846c727182162f6b1c/cappuccino-caseiro.jpg -->
             <img
               src="https://i.ytimg.com/vi/ZeE2gdpSIeA/maxresdefault.jpg"
               width="200"
               height="120"
+              class="cappuccino"
             />
           </td>
           <td>
@@ -38,6 +134,7 @@
               src="https://www.guiadasemana.com.br/contentFiles/image/opt_w1280h960/2019/06/FEA/63866_shutterstock-689939614.jpg"
               width="200"
               height="120"
+              class="chai-tea"
             />
           </td>
         </tr>
@@ -57,5 +154,28 @@
         </tr>
       </tbody>
     </table>
+
+    <script>
+      // Handle navigation with View Transitions
+      document.addEventListener("click", (e) => {
+        // Check if the clicked element is a link
+        if (e.target.tagName === "A" && e.target.href) {
+          // Only handle same-origin navigation
+          if (new URL(e.target.href).origin === location.origin) {
+            e.preventDefault();
+
+            // Start the transition if the browser supports it
+            if (document.startViewTransition) {
+              document.startViewTransition(() => {
+                window.location.href = e.target.href;
+              });
+            } else {
+              // Fallback for browsers without support
+              window.location.href = e.target.href;
+            }
+          }
+        }
+      });
+    </script>
   </body>
 </html>

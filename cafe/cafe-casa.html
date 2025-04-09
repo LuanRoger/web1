@@ -3,7 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="view-transition" content="same-origin" />
     <title>Hora do Café</title>
+
+    <style>
+      /* Give elements unique view-transition-names to control their transitions */
+      h1 {
+        view-transition-name: page-title;
+      }
+
+      /* Use a class instead of generic img selector */
+      .house-coffee {
+        view-transition-name: house-coffee;
+      }
+
+      /* Customize transition styles */
+      ::view-transition-old(page-title) {
+        animation: 300ms ease-out both fade-out;
+      }
+
+      ::view-transition-new(page-title) {
+        animation: 500ms ease-in both slide-from-right;
+      }
+
+      ::view-transition-old(house-coffee) {
+        animation: 400ms ease-out both zoom-out;
+      }
+
+      ::view-transition-new(house-coffee) {
+        animation: 400ms ease-in both zoom-in;
+      }
+
+      /* Animation keyframes remain the same */
+      @keyframes fade-out {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+
+      @keyframes slide-from-right {
+        from {
+          transform: translateX(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes zoom-out {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+      }
+
+      @keyframes zoom-in {
+        from {
+          transform: scale(1.2);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
   <body>
     <h1>Hora do café</h1>
@@ -13,6 +85,7 @@
       src="https://s2.glbimg.com/B0L-ZJSLxOBiF29yzYjXBxubcng=/780x440/e.glbimg.com/og/ed/f/original/2016/11/04/cappuccino_caseiro_ecodallaluna.jpg"
       width="500"
       height="300"
+      class="house-coffee"
     />
     <br />
     <br />
@@ -27,5 +100,28 @@
       <p>R$ 5,00</p>
     </span>
     <a href="./index.html">Retornar</a>
+
+    <script>
+      // Handle navigation with View Transitions
+      document.addEventListener("click", (e) => {
+        // Check if the clicked element is a link
+        if (e.target.tagName === "A" && e.target.href) {
+          // Only handle same-origin navigation
+          if (new URL(e.target.href).origin === location.origin) {
+            e.preventDefault();
+
+            // Start the transition if the browser supports it
+            if (document.startViewTransition) {
+              document.startViewTransition(() => {
+                window.location.href = e.target.href;
+              });
+            } else {
+              // Fallback for browsers without support
+              window.location.href = e.target.href;
+            }
+          }
+        }
+      });
+    </script>
   </body>
 </html>
