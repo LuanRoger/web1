@@ -62,7 +62,7 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-.messi-section:hover .player-about-section-image {
+/* .messi-section:hover .player-about-section-image {
   opacity: 0;
 }
 
@@ -76,7 +76,7 @@
 
 .cr7-section:hover .player-about-section-video {
   opacity: 1;
-}
+} */
 
 .messi-gradient-decoration {
   position: absolute;
