@@ -26,6 +26,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: fit-content;
   gap: 10px;
 }
 
@@ -117,4 +118,67 @@
 .nav-list li:not(:hover)::before {
   transform: translateY(100%);
   transition: transform 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .header-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .event-title {
+    font-size: 32px;
+  }
+
+  .player-text-logo {
+    font-size: 30px;
+  }
+
+  .versus {
+    font-size: 28px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .nav-list li {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .header-container {
+    padding: 15px;
+  }
+
+  .event-title {
+    font-size: 40px;
+  }
+
+  .player-text-logo {
+    font-size: 35px;
+  }
+
+  .nav-list {
+    gap: 5px;
+  }
+
+  .nav-list li a {
+    padding: 8px 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-container {
+    padding: 20px;
+  }
+
+  .event-title {
+    font-size: 50px;
+  }
 }
