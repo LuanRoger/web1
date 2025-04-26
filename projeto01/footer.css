@@ -1,0 +1,29 @@
+footer {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  width: 100%;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+}
+
+.social-media-contaiener {
+  display: flex;
+  justify-items: center;
+  gap: var(--spacing-lg);
+}
+
+.event-name-footer {
+  color: var(--color-yellow-400);
+}
+
+.social-media-contaiener svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-white);
+  transition: fill 0.3s ease;
+}
