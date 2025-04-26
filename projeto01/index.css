@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sans-bold {
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.parisienne-regular {
+  font-family: "Parisienne", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#banner {
+  width: 100%;
+  object-fit: scale-down;
+}
+
+#header-container {
+  background-color: #545454;
+  color: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#event-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: bold;
+  color: #cca331;
+}
+
+#nav-header {
+  color: #cca331;
+}
+
+.nav-subtitle {
+  color: white;
+  font-size: 10px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.player-name {
+  font-size: 40px;
+}
+
+.nav-player-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
