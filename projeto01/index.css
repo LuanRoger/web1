@@ -103,9 +103,46 @@ body {
   list-style: none;
 }
 
-.nav-list li a {
-  color: white;
-  font-weight: bold;
+/* Navigation hover animation with rising rectangle */
+.nav-list li {
+  position: relative;
+  overflow: hidden;
   cursor: pointer;
+}
+
+.nav-list li a {
+  position: relative;
+  z-index: 2;
+  padding: 8px 16px;
+  display: inline-block;
   text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.nav-list li a:hover {
+  color: #020617;
+  transition: color 0.3s ease;
+}
+
+.nav-list li::before {
+  content: "";
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f8fafc;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.nav-list li:hover::before {
+  transform: translateY(-100%);
+}
+
+/* When mouse leaves the element, animate out in the same direction */
+.nav-list li:not(:hover)::before {
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
 }
