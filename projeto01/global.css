@@ -1,4 +1,3 @@
-/* CSS Variables */
 :root {
   /* Colors */
   --color-black: #000000;
@@ -7,11 +6,24 @@
   --color-transparent: transparent;
   --color-slate-50: #f8fafc;
   --color-slate-950: #020617;
-  
+
+  --argentina-blue: #6cace4;
+  --portugal-green: #046a38;
+  --portugal-red: #da291c;
+
   /* Gradients */
-  --gradient-messi: linear-gradient(180deg, #6cace4 40%, white 50%, #6cace4 70%);
-  --gradient-ronaldo: linear-gradient(90deg, #046a38 15%, #da291c 25%);
-  
+  --gradient-messi: linear-gradient(
+    180deg,
+    var(--argentina-blue) 40%,
+    white 50%,
+    var(--argentina-blue) 70%
+  );
+  --gradient-ronaldo: linear-gradient(
+    90deg,
+    var(--portugal-green) 15%,
+    var(--portugal-red) 25%
+  );
+
   /* Font Sizes */
   --font-xs: 10px;
   --font-lg: 28px;
@@ -20,7 +32,7 @@
   --font-3xl: 35px;
   --font-4xl: 40px;
   --font-5xl: 50px;
-  
+
   /* Spacing */
   --spacing-xs: 2px;
   --spacing-sm: 5px;
