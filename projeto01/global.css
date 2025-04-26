@@ -1,3 +1,36 @@
+/* CSS Variables */
+:root {
+  /* Colors */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-dark-gray: #18181b;
+  --color-transparent: transparent;
+  --color-slate-50: #f8fafc;
+  --color-slate-950: #020617;
+  
+  /* Gradients */
+  --gradient-messi: linear-gradient(180deg, #6cace4 40%, white 50%, #6cace4 70%);
+  --gradient-ronaldo: linear-gradient(90deg, #046a38 15%, #da291c 25%);
+  
+  /* Font Sizes */
+  --font-xs: 10px;
+  --font-lg: 28px;
+  --font-xl: 30px;
+  --font-2xl: 32px;
+  --font-3xl: 35px;
+  --font-4xl: 40px;
+  --font-5xl: 50px;
+  
+  /* Spacing */
+  --spacing-xs: 2px;
+  --spacing-sm: 5px;
+  --spacing-md: 8px;
+  --spacing-lg: 10px;
+  --spacing-xl: 15px;
+  --spacing-2xl: 16px;
+  --spacing-3xl: 20px;
+}
+
 /* Font Definitions */
 .gothic-font {
   font-family: "Special Gothic Expanded One", sans-serif;
