@@ -11,7 +11,7 @@ footer {
   padding: 18px;
 }
 
-.social-media-contaiener {
+.social-media-container {
   display: flex;
   justify-items: center;
   gap: var(--spacing-lg);
@@ -21,7 +21,7 @@ footer {
   color: var(--color-yellow-400);
 }
 
-.social-media-contaiener svg {
+.social-media-container svg {
   width: 24px;
   height: 24px;
   fill: var(--color-white);
