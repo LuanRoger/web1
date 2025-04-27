@@ -1,4 +1,3 @@
-/* Component-specific styles */
 .main-header {
   display: flex;
   flex-direction: column;
@@ -76,7 +75,6 @@
   list-style: none;
 }
 
-/* Navigation hover animation with rising rectangle */
 .nav-list li {
   position: relative;
   overflow: hidden;
@@ -114,7 +112,6 @@
   transform: translateY(-100%);
 }
 
-/* When mouse leaves the element, animate out in the same direction */
 .nav-list li:not(:hover)::before {
   transform: translateY(100%);
   transition: transform 0.3s ease;

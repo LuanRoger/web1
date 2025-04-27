@@ -1,5 +1,5 @@
 :root {
-  /* Colors */
+  /* Cores */
   --color-black: #000000;
   --color-white: #ffffff;
   --color-dark-gray: #18181b;
@@ -12,7 +12,7 @@
   --portugal-green: #046a38;
   --portugal-red: #da291c;
 
-  /* Gradients */
+  /* Gradientes */
   --gradient-messi: linear-gradient(
     180deg,
     var(--argentina-blue) 40%,
@@ -25,7 +25,7 @@
     var(--portugal-red) 25%
   );
 
-  /* Font Sizes */
+  /* Tamanho das fontes */
   --font-xs: 10px;
   --font-lg: 28px;
   --font-xl: 30px;
@@ -34,7 +34,7 @@
   --font-4xl: 40px;
   --font-5xl: 50px;
 
-  /* Spacing */
+  /* Espaçamentos */
   --spacing-xs: 2px;
   --spacing-sm: 5px;
   --spacing-md: 8px;
@@ -44,7 +44,7 @@
   --spacing-3xl: 20px;
 }
 
-/* Font Definitions */
+/* Fontes */
 .gothic-font {
   font-family: "Special Gothic Expanded One", sans-serif;
   font-weight: 400;
@@ -64,14 +64,13 @@
   font-style: normal;
 }
 
-/* Reset Styles */
+/* Estilos base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Base Styles */
 body {
   font-family: "Geist", sans-serif;
 }
