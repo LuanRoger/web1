@@ -1,0 +1,28 @@
+.cronograma-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.cronograma-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.cronograma-table th,
+.cronograma-table td {
+  padding: 14px;
+  border: 1px solid var(--color-slate-950);
+  text-align: center;
+}
+
+.cronograma-table th {
+  background: var(--color-slate-950);
+  color: white;
+}
+
+.cronograma-table tr:nth-child(even) {
+  background: var(--color-slate-50);
+}
