@@ -1,10 +1,10 @@
 .player-explanation {
   display: flex;
   flex-direction: column;
+  width: 60%;
   gap: 10px;
   padding: 14px;
   font-size: 16px;
-  flex: 1;
   z-index: 3;
 }
 
@@ -16,7 +16,6 @@
 .messi-section {
   position: relative;
   isolation: isolate;
-  height: 35vh;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -24,9 +23,8 @@
 
 .cr7-section {
   position: relative;
-  color: white;
   isolation: isolate;
-  height: 35vh;
+  color: white;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -34,49 +32,21 @@
 
 .player-about-media-wrapper {
   position: relative;
-  width: 40%;
   height: 100%;
   overflow: hidden;
 }
 
 .player-about-section-image {
   height: 100%;
-  width: 100%;
+  width: 40%;
   z-index: 1;
   object-fit: cover;
   position: absolute;
-  top: 0;
-  left: 0;
+  overflow: hidden;
+  right: 0;
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
 }
-
-.player-about-section-video {
-  height: 100%;
-  z-index: 1;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-/* .messi-section:hover .player-about-section-image {
-  opacity: 0;
-}
-
-.messi-section:hover .player-about-section-video {
-  opacity: 1;
-}
-
-.cr7-section:hover .player-about-section-image {
-  opacity: 0;
-}
-
-.cr7-section:hover .player-about-section-video {
-  opacity: 1;
-} */
 
 .messi-gradient-decoration {
   position: absolute;
