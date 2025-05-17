@@ -20,6 +20,7 @@ const validCoupons = [
   { code: "CAFRED", discount: 0.1 },
   { code: "ASSASSINO", discount: 0.2 },
   { code: "MORNINGBOOST", discount: 0.18 },
+  { code: "CAFEDESCONTO", discount: 0.15 },
 ];
 
 const elements = {
