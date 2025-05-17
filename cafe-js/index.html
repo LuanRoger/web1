@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hora do Café</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <main id="main-container">
+      <h1 class="text-center">Hora do café</h1>
+      <p class="text-center">Cadápio</p>
+      <ul id="product-list">
+        <div class="product-item">
+          <img
+            src="https://s2.glbimg.com/B0L-ZJSLxOBiF29yzYjXBxubcng=/780x440/e.glbimg.com/og/ed/f/original/2016/11/04/cappuccino_caseiro_ecodallaluna.jpg"
+            width="200"
+            height="120"
+          />
+          <a class="text-center" href="./cafe-casa.html">Café de casa</a>
+          <button id="add-cart-cafe-casa">Adicionar ao carrinho</button>
+        </div>
+        <div class="product-item">
+          <img
+            src="https://minascomvoce.com.br/wp-content/uploads/2022/02/cafe-com-leite-Gabe-Raggio-Pixabay-970x550-1.jpg"
+            width="200"
+            height="120"
+          />
+          <a class="text-center" href="./cafe-leite.html">Café com leite</a>
+          <button id="add-cart-cafe-leite">Adicionar ao carrinho</button>
+        </div>
+        <div class="product-item">
+          <img
+            src="https://i.ytimg.com/vi/ZeE2gdpSIeA/maxresdefault.jpg"
+            width="200"
+            height="120"
+          />
+          <a class="text-center" href="./cafe-cappuccino.html">Cappuccino</a>
+          <button id="add-cart-cafe-cappuccino">Adicionar ao carrinho</button>
+        </div>
+        <div class="product-item">
+          <img
+            src="https://www.guiadasemana.com.br/contentFiles/image/opt_w1280h960/2019/06/FEA/63866_shutterstock-689939614.jpg"
+            width="200"
+            height="120"
+          />
+          <a class="text-center" href="./cafe-cha-chai.html">Chá Chai</a>
+          <button id="add-cart-cha-chai">Adicionar ao carrinho</button>
+        </div>
+      </ul>
+
+      <section class="cart">
+        <h2>Carrinho</h2>
+        <ul id="cart-list"></ul>
+        <div>
+          <label for="cart-coupon">Cupom:</label>
+          <input id="cart-coupon" type="text" />
+          <button id="cart-coupon-button">Aplicar</button>
+          <button id="cart-coupon-remove-button">Remover</button>
+        </div>
+        <div>
+          <p id="applied-discount">Desconto: R$ 0,00</p>
+          <p id="total-price-cart">Total: R$ 0,00</p>
+        </div>
+        <div id="cart-buttons">
+          <button id="cart-clear-button">Limpar carrinho</button>
+          <button id="cart-checkout-button">Finalizar compra</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
+</html>
