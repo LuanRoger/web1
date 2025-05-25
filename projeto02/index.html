@@ -6,8 +6,8 @@
     <title>Messi X Cristiano Ronaldo</title>    <link rel="stylesheet" href="global.css" />
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="compare-section.css" />
-    <link rel="stylesheet" href="about-project.css" />
-    <link rel="stylesheet" href="cronograma.css" />
+    <link rel="stylesheet" href="about-project.css" />    <link rel="stylesheet" href="cronograma.css" />
+    <link rel="stylesheet" href="countdown.css" />
     <link rel="stylesheet" href="subscription.css" />
     <link rel="stylesheet" href="footer.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -50,6 +50,7 @@
           <li><a href="#cr7">Cristiano Ronaldo</a></li>
           <li><a href="#about">Sobre o evento </a></li>
           <li><a href="#cron">Cronograma</a></li>
+          <li><a href="#countdown">Contagem Regressiva</a></li>
           <li><a href="#subscription">Inscrição</a></li>
         </ul>
       </nav>
@@ -186,9 +187,62 @@
             <tr>
               <td>20:00 - 22:00</td>
               <td>Jantar Beneficente e Leilão de Itens Especiais</td>
-            </tr>
-          </tbody>
+            </tr>          </tbody>
         </table>
+      </section>
+      <section id="countdown" class="countdown-section">
+        <h1 class="countdown-title gothic-font">Contagem Regressiva</h1>        <div class="countdown-container">
+          <div class="countdown-item">
+            <div class="countdown-number" id="days">
+              <div class="countdown-digit-wrapper">
+                <span class="countdown-digit">0</span>
+              </div>
+              <div class="countdown-digit-wrapper">
+                <span class="countdown-digit">0</span>
+              </div>
+              <div class="countdown-digit-wrapper">
+                <span class="countdown-digit">0</span>
+              </div>
+            </div>
+            <span class="countdown-label">Dias</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="hours">
+              <div class="countdown-digit-wrapper">
+                <span class="countdown-digit">0</span>
+              </div>
+              <div class="countdown-digit-wrapper">
+                <span class="countdown-digit">0</span>
+              </div>
+            </div>
+            <span class="countdown-label">Horas</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="minutes">
+              <div class="countdown-digit-wrapper">
+                <span class="countdown-digit">0</span>
+              </div>
+              <div class="countdown-digit-wrapper">
+                <span class="countdown-digit">0</span>
+              </div>
+            </div>
+            <span class="countdown-label">Minutos</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="seconds">
+              <div class="countdown-digit-wrapper">
+                <span class="countdown-digit">0</span>
+              </div>
+              <div class="countdown-digit-wrapper">
+                <span class="countdown-digit">0</span>
+              </div>
+            </div>
+            <span class="countdown-label">Segundos</span>
+          </div>
+        </div>
       </section>
       <section id="subscription" class="subscription-section">
         <h1 class="subscription-title gothic-font">Inscreva-se no Evento</h1>
@@ -270,8 +324,8 @@
         <aside>
           <p class="event-name-footer fancy-font">The Last Dance</p>
         </aside>
-      </footer>
-    </main>
+      </footer>    </main>
+    <script src="countdown.js"></script>
     <script src="subscription.js"></script>
   </body>
 </html>
