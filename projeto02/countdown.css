@@ -23,7 +23,6 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
-  flex-wrap: wrap;
   width: 100%;
   max-width: 800px;
 }
@@ -44,51 +43,49 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  margin-bottom: 10px;
 }
 
 .countdown-digit {
   font-size: 48px;
   font-weight: bold;
   color: var(--color-black);
-  position: relative;
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
   height: 60px;
   line-height: 60px;
-  overflow: hidden;
+  transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .countdown-digit-wrapper {
   position: relative;
   height: 60px;
   overflow: hidden;
+  width: 40px;
+  margin: 0 auto;
 }
 
-.countdown-digit.slide-up {
-  animation: slideUp 0.5s ease-in-out;
+.countdown-digit.slide-up-exit {
+  transform: translateX(-50%) translateY(-100%);
+  opacity: 0;
 }
 
-.countdown-digit.slide-down {
-  animation: slideDown 0.5s ease-in-out;
+.countdown-digit.slide-down-enter {
+  transform: translateX(-50%) translateY(100%);
+  opacity: 0;
 }
 
-@keyframes slideUp {
-  0% {
-    transform: translateY(0%);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
+.countdown-digit.slide-down-enter-active {
+  transform: translateX(-50%) translateY(0%);
+  opacity: 1;
 }
 
-@keyframes slideDown {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
+.countdown-digit.slide-up-exit-active {
+  transform: translateX(-50%) translateY(-100%);
+  opacity: 0;
 }
 
 .countdown-label {
@@ -124,6 +121,7 @@
   
   .countdown-digit-wrapper {
     height: 40px;
+    width: 30px;
   }
   
   .countdown-separator {

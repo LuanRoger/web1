@@ -65,31 +65,43 @@ class CountdownTimer {
       valueStr = newValue.toString().padStart(2, '0');
     }
 
-    // Update each digit with slide animation
+    // Update each digit with smooth slide animation
     digitWrappers.forEach((wrapper, index) => {
       if (index < valueStr.length) {
-        const newDigit = valueStr[valueStr.length - 1 - (digitWrappers.length - 1 - index)];
+        const newDigitValue = valueStr[valueStr.length - 1 - (digitWrappers.length - 1 - index)];
         const currentDigit = wrapper.querySelector('.countdown-digit');
         
-        if (currentDigit.textContent !== newDigit) {
-          // Create new digit element for sliding in from bottom
+        if (currentDigit && currentDigit.textContent !== newDigitValue) {
+          // Create new digit element for entering from bottom
           const newDigitElement = document.createElement('span');
-          newDigitElement.classList.add('countdown-digit', 'slide-down');
-          newDigitElement.textContent = newDigit;
+          newDigitElement.classList.add('countdown-digit', 'slide-down-enter');
+          newDigitElement.textContent = newDigitValue;
           
-          // Add slide-up animation to current digit
-          currentDigit.classList.add('slide-up');
-          
-          // Insert new digit element
+          // Add the new digit to the wrapper
           wrapper.appendChild(newDigitElement);
           
-          // Remove old digit and clean up after animation completes
+          // Start exit animation for current digit
+          currentDigit.classList.add('slide-up-exit-active');
+          
+          // Force reflow to ensure the initial state is applied
+          newDigitElement.offsetHeight;
+          
+          // Start enter animation for new digit
+          requestAnimationFrame(() => {
+            newDigitElement.classList.remove('slide-down-enter');
+            newDigitElement.classList.add('slide-down-enter-active');
+          });
+          
+          // Clean up after animation completes
           setTimeout(() => {
+            // Remove old digit
             if (wrapper.contains(currentDigit)) {
               wrapper.removeChild(currentDigit);
             }
-            newDigitElement.classList.remove('slide-down');
-          }, 500);
+            
+            // Clean up classes from new digit
+            newDigitElement.classList.remove('slide-down-enter-active');
+          }, 600);
         }
       }
     });
