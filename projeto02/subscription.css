@@ -21,15 +21,6 @@
   color: var(--color-dark-gray);
 }
 
-.subscription-description {
-  font-size: var(--font-lg);
-  text-align: center;
-  margin-bottom: 40px;
-  color: var(--color-dark-gray);
-  max-width: 600px;
-  line-height: 1.6;
-}
-
 .subscription-form {
   background: var(--color-white);
   padding: 40px;
@@ -66,14 +57,6 @@
 .form-input:focus {
   outline: none;
   border-color: var(--argentina-blue);
-}
-
-.form-input:invalid:not(:focus):not(:placeholder-shown) {
-  border-color: var(--portugal-red);
-}
-
-.form-input:valid:not(:focus):not(:placeholder-shown) {
-  border-color: var(--portugal-red);
 }
 
 .error-message {
@@ -116,14 +99,15 @@
 .success-message {
   margin-top: 20px;
   padding: 15px;
-  background: rgba(218, 41, 28, 0.1);
-  border: 1px solid var(--portugal-red);
+  background: rgba(9, 254, 160, 0.1);
+  border: 1px solid var(--portugal-green);
   border-radius: 8px;
   text-align: center;
+  display: none;
 }
 
 .success-message p {
-  color: var(--portugal-red);
+  color: var(--portugal-green);
   font-weight: 500;
   font-size: 14px;
   margin: 0;
@@ -134,17 +118,13 @@
   .subscription-section {
     padding: 20px 15px;
   }
-  
+
   .subscription-title {
     font-size: var(--font-4xl);
   }
-  
+
   .subscription-form {
     padding: 30px 20px;
-  }
-  
-  .subscription-description {
-    font-size: var(--font-xl);
   }
 }
 
@@ -152,11 +132,7 @@
   .subscription-title {
     font-size: var(--font-3xl);
   }
-  
-  .subscription-description {
-    font-size: 18px;
-  }
-  
+
   .subscription-form {
     padding: 25px 15px;
   }
@@ -176,17 +152,10 @@
 
 .form-input.error {
   border-color: var(--portugal-red);
-  animation: shake 0.3s ease-in-out;
 }
 
 .form-input.success {
-  border-color: var(--portugal-red);
-}
-
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
+  border-color: var(--portugal-green);
 }
 
 /* Loading state para o botão */
@@ -196,7 +165,7 @@
 }
 
 .submit-button.loading::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -210,6 +179,10 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
