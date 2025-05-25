@@ -113,7 +113,6 @@
   margin: 0;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .subscription-section {
     padding: 20px 15px;
@@ -138,14 +137,12 @@
   }
 }
 
-/* Animações para os inputs */
 .form-input:focus + .form-label,
 .form-input:not(:placeholder-shown) + .form-label {
   transform: translateY(-25px) scale(0.85);
   color: var(--argentina-blue);
 }
 
-/* Estados dos inputs com animação */
 .form-group {
   position: relative;
 }
@@ -158,7 +155,6 @@
   border-color: var(--portugal-green);
 }
 
-/* Loading state para o botão */
 .submit-button.loading {
   position: relative;
   color: transparent;
