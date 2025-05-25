@@ -1,4 +1,4 @@
-const EVENT_DATE = "2025-12-25 18:00:00";
+const EVENT_DATE = "2025-06-24 18:00:00";
 
 class CountdownTimer {
   constructor(eventDate) {

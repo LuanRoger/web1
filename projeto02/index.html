@@ -3,13 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Messi X Cristiano Ronaldo</title>    <link rel="stylesheet" href="global.css" />
+    <title>Messi X Cristiano Ronaldo</title>
+    <link rel="stylesheet" href="global.css" />
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="compare-section.css" />
-    <link rel="stylesheet" href="about-project.css" />    <link rel="stylesheet" href="cronograma.css" />
+    <link rel="stylesheet" href="about-project.css" />
+    <link rel="stylesheet" href="cronograma.css" />
     <link rel="stylesheet" href="countdown.css" />
     <link rel="stylesheet" href="subscription.css" />
     <link rel="stylesheet" href="footer.css" />
+    <link rel="stylesheet" href="event-details.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -45,7 +48,8 @@
         </section>
         <h1 class="event-title fancy-font">The Last Dance</h1>
       </div>
-      <nav class="nav-container">        <ul class="nav-list gothic-font">
+      <nav class="nav-container">
+        <ul class="nav-list gothic-font">
           <li><a href="#messi">Messi</a></li>
           <li><a href="#cr7">Cristiano Ronaldo</a></li>
           <li><a href="#about">Sobre o evento </a></li>
@@ -187,11 +191,13 @@
             <tr>
               <td>20:00 - 22:00</td>
               <td>Jantar Beneficente e Leilão de Itens Especiais</td>
-            </tr>          </tbody>
+            </tr>
+          </tbody>
         </table>
       </section>
       <section id="countdown" class="countdown-section">
-        <h1 class="countdown-title gothic-font">Contagem Regressiva</h1>        <div class="countdown-container">
+        <h1 class="countdown-title gothic-font">Contagem Regressiva</h1>
+        <div class="countdown-container">
           <div class="countdown-item">
             <div class="countdown-number" id="days">
               <div class="countdown-digit-wrapper">
@@ -306,7 +312,10 @@
           </button>
 
           <div class="success-message" id="successMessage">
-            <p>✅ Inscrição realizada com sucesso! Você receberá um email de confirmação em breve.</p>
+            <p>
+              ✅ Inscrição realizada com sucesso! Você receberá um email de
+              confirmação em breve.
+            </p>
           </div>
         </form>
       </section>
@@ -324,8 +333,88 @@
         <aside>
           <p class="event-name-footer fancy-font">The Last Dance</p>
         </aside>
-      </footer>    </main>
+      </footer>
+    </main>
+
+    <div id="eventDetailsModal" class="modal-overlay">
+      <div class="event-details-modal">
+        <div class="modal-header">
+          <h2 id="modalEventName" class="modal-title">The Last Dance</h2>
+          <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-content">
+          <div class="modal-section">
+            <h3>Informações do Evento</h3>
+            <div class="event-info-grid">
+              <div class="info-item">
+                <span class="info-label">Data</span>
+                <span id="modalEventDate" class="info-value"
+                  >15 de Dezembro de 2025</span
+                >
+              </div>
+              <div class="info-item">
+                <span class="info-label">Local</span>
+                <span id="modalEventLocation" class="info-value"
+                  >Estádio Maracanã, Rio de Janeiro - RJ</span
+                >
+              </div>
+              <div class="info-item">
+                <span class="info-label">Capacidade</span>
+                <span id="modalEventCapacity" class="info-value"
+                  >78.838 espectadores</span
+                >
+              </div>
+              <div class="info-item">
+                <span class="info-label">Duração</span>
+                <span id="modalEventDuration" class="info-value"
+                  >Aproximadamente 8 horas</span
+                >
+              </div>
+              <div class="info-item">
+                <span class="info-label">Ingressos</span>
+                <span id="modalEventPrice" class="info-value"
+                  >A partir de R$ 150,00</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-section">
+            <h3>Sobre o Evento</h3>
+            <p id="modalEventDescription">
+              Um evento histórico que marca o último encontro entre duas lendas
+              do futebol mundial.
+            </p>
+          </div>
+
+          <div class="modal-section">
+            <h3>Destaques do Evento</h3>
+            <ul id="modalEventHighlights" class="highlights-list"></ul>
+          </div>
+
+          <div class="modal-section">
+            <h3>Equipes</h3>
+            <div class="teams-section">
+              <div class="team-info">
+                <h4 style="color: #00bcd4; margin-bottom: 0.5rem">
+                  Time do Messi
+                </h4>
+                <p id="modalTeam1">Seleção de Estrelas da América do Sul</p>
+              </div>
+              <div class="team-info">
+                <h4 style="color: #ff5722; margin-bottom: 0.5rem">
+                  Time do Ronaldo
+                </h4>
+                <p id="modalTeam2">Seleção de Estrelas da Europa</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="countdown.js"></script>
     <script src="subscription.js"></script>
+    <script src="event-details.js"></script>
   </body>
 </html>
