@@ -1,0 +1,76 @@
+:root {
+  /* Cores */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-dark-gray: #18181b;
+  --color-transparent: transparent;
+  --color-slate-50: #f8fafc;
+  --color-slate-950: #020617;
+  --color-yellow-400: #fbbf24;
+
+  --argentina-blue: #6cace4;
+  --portugal-green: #046a38;
+  --portugal-red: #da291c;
+
+  /* Gradientes */
+  --gradient-messi: linear-gradient(
+    180deg,
+    var(--argentina-blue) 40%,
+    white 50%,
+    var(--argentina-blue) 70%
+  );
+  --gradient-ronaldo: linear-gradient(
+    90deg,
+    var(--portugal-green) 15%,
+    var(--portugal-red) 25%
+  );
+
+  /* Tamanho das fontes */
+  --font-xs: 10px;
+  --font-lg: 28px;
+  --font-xl: 30px;
+  --font-2xl: 32px;
+  --font-3xl: 35px;
+  --font-4xl: 40px;
+  --font-5xl: 50px;
+
+  /* Espaçamentos */
+  --spacing-xs: 2px;
+  --spacing-sm: 5px;
+  --spacing-md: 8px;
+  --spacing-lg: 10px;
+  --spacing-xl: 15px;
+  --spacing-2xl: 16px;
+  --spacing-3xl: 20px;
+}
+
+/* Fontes */
+.gothic-font {
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.fancy-font {
+  font-family: "Parisienne", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.geist-regular {
+  font-family: "Geist", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Geist", sans-serif;
+}
