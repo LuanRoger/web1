@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clima</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>Clima</h1>
+    <form id="weather-form">
+      <label for="city">Cidade</label>
+      <input name="city" id="city-input" placeholder="Cidade" />
+      <button>Pesquisar</button>
+    </form>
+    <p class="hidden" id="loading-indicator">Carregando...</p>
+    <section id="result-section" class="hidden">
+      <h2>Resultado</h2>
+      <p id="current-weather-result"></p>
+      <p id="current-weather-result-description"></p>
+    </section>
+    <script src="./index.js"></script>
+  </body>
+</html>
