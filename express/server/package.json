@@ -7,12 +7,18 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "start": "node dist/bundle.js",
+    "dev": "nodemon index.js",
+    "build": "rollup index.js --file dist/bundle.js --format cjs"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^5.1.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "nodemon": "^3.1.10",
+    "rollup": "^4.43.0"
   }
 }
