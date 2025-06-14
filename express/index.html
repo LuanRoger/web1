@@ -9,8 +9,10 @@
     <h1>Mensagens</h1>
     <ul id="lista-mensagens"></ul>
 
-    <input type="text" id="mensagem" placeholder="Digite uma mensagem" />
-    <button onclick="enviarMensagem()">Enviar</button>
+    <form onsubmit="enviarMensagem(); return false;">
+      <input type="text" id="mensagem" placeholder="Digite uma mensagem" />
+      <button type="submit">Enviar</button>
+    </form>
 
     <script src="script.js"></script>
   </body>
