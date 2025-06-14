@@ -1,4 +1,6 @@
 const API_URL = "http://localhost:3000/mensagens";
+const ALERT_ERROR_MESSAGE =
+  "Erro ao carregar mensagens. Verifique se o servidor esta rodando e tente novamente.";
 
 async function carregarMensagens() {
   const lista = document.getElementById("lista-mensagens");
@@ -15,7 +17,7 @@ async function carregarMensagens() {
     });
   } catch (error) {
     console.error("Erro ao carregar mensagens:", error);
-    alert("Erro ao carregar mensagens. Tente novamente.");
+    alert(ALERT_ERROR_MESSAGE);
     return;
   }
 }
@@ -23,7 +25,7 @@ async function carregarMensagens() {
 async function enviarMensagem() {
   const texto = document.getElementById("mensagem").value;
   try {
-    const result = await fetch(API_URL, {
+    await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ texto }),
@@ -33,7 +35,7 @@ async function enviarMensagem() {
     carregarMensagens();
   } catch (error) {
     console.error("Erro ao enviar mensagem:", error);
-    alert("Erro ao enviar mensagem. Tente novamente.");
+    alert(ALERT_ERROR_MESSAGE);
     return;
   }
 }
