@@ -2,14 +2,14 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Servidor para Web",
-  "license": "ISC",
+  "license": "MIT",
   "author": "",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "start": "node dist/bundle.js",
     "dev": "nodemon index.js",
-    "build": "rollup index.js --file dist/bundle.js --format cjs"
+    "build": "rolldown index.js --file dist/bundle.js --format cjs"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -19,6 +19,6 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "nodemon": "^3.1.10",
-    "rollup": "^4.43.0"
+    "rolldown": "^1.0.0-beta.15"
   }
 }
