@@ -1,4 +1,3 @@
-// Controller: Manages interaction between Model and View for header/navigation
 class HeaderController {
   constructor(eventModel, headerView) {
     this.eventModel = eventModel;
@@ -14,20 +13,20 @@ class HeaderController {
   renderHeader() {
     const playersData = this.eventModel.getPlayersData();
     const navigationData = this.eventModel.getNavigationData();
-    
+
     this.headerView.renderPlayerComparison(playersData);
     this.headerView.renderNavigation(navigationData);
   }
 
   bindNavigationEvents() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", (e) => {
         e.preventDefault();
-        const target = document.querySelector(anchor.getAttribute('href'));
+        const target = document.querySelector(anchor.getAttribute("href"));
         if (target) {
           target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+            behavior: "smooth",
+            block: "start",
           });
         }
       });
@@ -35,7 +34,6 @@ class HeaderController {
   }
 }
 
-// Controller: Manages player sections
 class PlayerController {
   constructor(eventModel, playerView) {
     this.eventModel = eventModel;
@@ -49,14 +47,13 @@ class PlayerController {
 
   renderPlayers() {
     const playersData = this.eventModel.getPlayersData();
-    
-    Object.keys(playersData).forEach(playerKey => {
+
+    Object.keys(playersData).forEach((playerKey) => {
       this.playerView.renderPlayerSection(playerKey, playersData[playerKey]);
     });
   }
 }
 
-// Controller: Manages about section
 class AboutController {
   constructor(eventModel, aboutView) {
     this.eventModel = eventModel;
@@ -74,7 +71,6 @@ class AboutController {
   }
 }
 
-// Controller: Manages schedule section
 class ScheduleController {
   constructor(eventModel, scheduleView) {
     this.eventModel = eventModel;
@@ -92,7 +88,6 @@ class ScheduleController {
   }
 }
 
-// Controller: Manages countdown functionality
 class CountdownController {
   constructor(countdownModel, countdownView) {
     this.countdownModel = countdownModel;
@@ -115,7 +110,7 @@ class CountdownController {
 
   updateCountdown() {
     const timeData = this.countdownModel.calculateTimeLeft();
-    
+
     if (timeData.hasEnded) {
       this.handleEventEnded();
       return;
@@ -146,7 +141,6 @@ class CountdownController {
   }
 }
 
-// Controller: Manages form functionality
 class FormController {
   constructor(formModel, formView) {
     this.formModel = formModel;
@@ -160,94 +154,89 @@ class FormController {
   }
 
   bindFormEvents() {
-    const form = document.getElementById('subscriptionForm');
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const cpfInput = document.getElementById('cpf');
-    const phoneInput = document.getElementById('phone');
+    const form = document.getElementById("subscriptionForm");
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const cpfInput = document.getElementById("cpf");
+    const phoneInput = document.getElementById("phone");
 
     if (!form) return;
 
-    // Input formatting
-    cpfInput?.addEventListener('input', (e) => {
+    cpfInput?.addEventListener("input", (e) => {
       const formatted = this.formModel.formatCPF(e.target.value);
       e.target.value = formatted;
-      this.formModel.setFormData('cpf', formatted);
-      
+      this.formModel.setFormData("cpf", formatted);
+
       if (formatted.length > 0) {
         const validation = this.formModel.validateCPF(formatted);
         if (validation.isValid) {
-          this.formView.showSuccess('cpf');
+          this.formView.showSuccess("cpf");
         } else {
-          this.formView.clearValidation('cpf');
+          this.formView.clearValidation("cpf");
         }
       }
     });
 
-    phoneInput?.addEventListener('input', (e) => {
+    phoneInput?.addEventListener("input", (e) => {
       const formatted = this.formModel.formatPhone(e.target.value);
       e.target.value = formatted;
-      this.formModel.setFormData('phone', formatted);
-      
+      this.formModel.setFormData("phone", formatted);
+
       if (formatted.length > 0) {
         const validation = this.formModel.validatePhone(formatted);
         if (validation.isValid) {
-          this.formView.showSuccess('phone');
+          this.formView.showSuccess("phone");
         } else {
-          this.formView.clearValidation('phone');
+          this.formView.clearValidation("phone");
         }
       }
     });
 
-    // Validation on blur
-    nameInput?.addEventListener('blur', (e) => {
-      this.formModel.setFormData('name', e.target.value);
+    nameInput?.addEventListener("blur", (e) => {
+      this.formModel.setFormData("name", e.target.value);
       const validation = this.formModel.validateName(e.target.value);
-      
+
       if (e.target.value.length > 0) {
         if (validation.isValid) {
-          this.formView.showSuccess('name');
+          this.formView.showSuccess("name");
         } else {
-          this.formView.showError('name', validation.message);
+          this.formView.showError("name", validation.message);
         }
       }
     });
 
-    emailInput?.addEventListener('blur', (e) => {
-      this.formModel.setFormData('email', e.target.value);
+    emailInput?.addEventListener("blur", (e) => {
+      this.formModel.setFormData("email", e.target.value);
       const validation = this.formModel.validateEmail(e.target.value);
-      
+
       if (e.target.value.length > 0) {
         if (validation.isValid) {
-          this.formView.showSuccess('email');
+          this.formView.showSuccess("email");
         } else {
-          this.formView.showError('email', validation.message);
+          this.formView.showError("email", validation.message);
         }
       }
     });
 
-    // Clear validation on focus
-    [nameInput, emailInput, cpfInput, phoneInput].forEach(input => {
-      input?.addEventListener('focus', (e) => {
+    [nameInput, emailInput, cpfInput, phoneInput].forEach((input) => {
+      input?.addEventListener("focus", (e) => {
         const fieldName = e.target.id;
         this.formView.clearValidation(fieldName);
       });
     });
 
-    // Form submission
-    form.addEventListener('submit', (e) => {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
       this.handleFormSubmission();
     });
   }
 
   handleFormSubmission() {
-    // Update form data
-    const formElements = document.getElementById('subscriptionForm').elements;
-    this.formModel.setFormData('name', formElements.name.value);
-    this.formModel.setFormData('email', formElements.email.value);
-    this.formModel.setFormData('cpf', formElements.cpf.value);
-    this.formModel.setFormData('phone', formElements.phone.value);
+    const formElements = document.getElementById("subscriptionForm").elements;
+    this.formModel.setFormData("name", formElements.name.value);
+    this.formModel.setFormData("email", formElements.email.value);
+    this.formModel.setFormData("cpf", formElements.cpf.value);
+    this.formModel.setFormData("phone", formElements.phone.value);
 
     const validation = this.formModel.validateAllFields();
 
@@ -259,7 +248,7 @@ class FormController {
   }
 
   showValidationErrors(results) {
-    Object.keys(results).forEach(field => {
+    Object.keys(results).forEach((field) => {
       const result = results[field];
       if (!result.isValid) {
         this.formView.showError(field, result.message);
@@ -272,22 +261,19 @@ class FormController {
   async submitForm() {
     this.formView.setLoading(true);
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
     this.formView.setLoading(false);
     this.formView.showSuccessMessage();
     this.formView.resetForm();
     this.formModel.clearFormData();
 
-    // Hide success message after 5 seconds
     setTimeout(() => {
       this.formView.hideSuccessMessage();
     }, 5000);
   }
 }
 
-// Controller: Manages modal functionality
 class ModalController {
   constructor(eventModel, modalView) {
     this.eventModel = eventModel;
@@ -300,31 +286,30 @@ class ModalController {
   }
 
   bindModalEvents() {
-    const eventTitle = document.querySelector('.event-title');
-    const closeBtn = document.querySelector('.close-modal');
-    const modalOverlay = document.querySelector('.modal-overlay');
+    const eventTitle = document.querySelector(".event-title");
+    const closeBtn = document.querySelector(".close-modal");
+    const modalOverlay = document.querySelector(".modal-overlay");
 
     if (eventTitle) {
-      eventTitle.style.cursor = 'pointer';
-      eventTitle.title = 'Clique para ver detalhes do evento';
-      eventTitle.addEventListener('click', () => this.showModal());
+      eventTitle.style.cursor = "pointer";
+      eventTitle.title = "Clique para ver detalhes do evento";
+      eventTitle.addEventListener("click", () => this.showModal());
     }
 
     if (closeBtn) {
-      closeBtn.addEventListener('click', () => this.hideModal());
+      closeBtn.addEventListener("click", () => this.hideModal());
     }
 
     if (modalOverlay) {
-      modalOverlay.addEventListener('click', (e) => {
+      modalOverlay.addEventListener("click", (e) => {
         if (e.target === modalOverlay) {
           this.hideModal();
         }
       });
     }
 
-    // ESC key support
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
         this.hideModal();
       }
     });
@@ -341,7 +326,6 @@ class ModalController {
   }
 }
 
-// Controller: Manages footer
 class FooterController {
   constructor(eventModel, footerView) {
     this.eventModel = eventModel;

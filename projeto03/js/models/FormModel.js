@@ -1,37 +1,35 @@
-// Model: Manages form data and validation
 class FormModel {
   constructor() {
     this.formData = {
-      name: '',
-      email: '',
-      cpf: '',
-      phone: ''
+      name: "",
+      email: "",
+      cpf: "",
+      phone: "",
     };
-    
+
     this.validationRules = {
       name: {
         required: true,
         pattern: /^[a-zA-ZÀ-ÿ\s]{2,50}$/,
-        message: "Nome deve conter apenas letras e ter entre 2-50 caracteres"
+        message: "Nome deve conter apenas letras e ter entre 2-50 caracteres",
       },
       email: {
         required: true,
         pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-        message: "Email inválido"
+        message: "Email inválido",
       },
       cpf: {
         required: true,
-        message: "CPF inválido"
+        message: "CPF inválido",
       },
       phone: {
         required: true,
         pattern: /^\(\d{2}\)\s\d{4,5}-\d{4}$/,
-        message: "Telefone inválido. Use o formato (00) 00000-0000"
-      }
+        message: "Telefone inválido. Use o formato (00) 00000-0000",
+      },
     };
   }
 
-  // Setters for form data
   setFormData(field, value) {
     if (this.formData.hasOwnProperty(field)) {
       this.formData[field] = value;
@@ -44,14 +42,13 @@ class FormModel {
 
   clearFormData() {
     this.formData = {
-      name: '',
-      email: '',
-      cpf: '',
-      phone: ''
+      name: "",
+      email: "",
+      cpf: "",
+      phone: "",
     };
   }
 
-  // Validation methods
   validateName(name) {
     const rule = this.validationRules.name;
     if (!name.trim()) {
@@ -78,18 +75,17 @@ class FormModel {
     if (!cpf.trim()) {
       return { isValid: false, message: "CPF é obrigatório" };
     }
-    
+
     const cleanCPF = cpf.replace(/[^\d]/g, "");
-    
+
     if (cleanCPF.length !== 11) {
       return { isValid: false, message: "CPF inválido" };
     }
-    
+
     if (/^(\d)\1+$/.test(cleanCPF)) {
       return { isValid: false, message: "CPF inválido" };
     }
 
-    // Validate first digit
     let sum = 0;
     for (let i = 0; i < 9; i++) {
       sum += parseInt(cleanCPF.charAt(i)) * (10 - i);
@@ -101,7 +97,6 @@ class FormModel {
       return { isValid: false, message: "CPF inválido" };
     }
 
-    // Validate second digit
     sum = 0;
     for (let i = 0; i < 10; i++) {
       sum += parseInt(cleanCPF.charAt(i)) * (11 - i);
@@ -132,14 +127,13 @@ class FormModel {
       name: this.validateName(this.formData.name),
       email: this.validateEmail(this.formData.email),
       cpf: this.validateCPF(this.formData.cpf),
-      phone: this.validatePhone(this.formData.phone)
+      phone: this.validatePhone(this.formData.phone),
     };
 
-    const isValid = Object.values(results).every(result => result.isValid);
+    const isValid = Object.values(results).every((result) => result.isValid);
     return { isValid, results };
   }
 
-  // Format methods
   formatCPF(value) {
     value = value.replace(/\D/g, "");
     value = value.replace(/(\d{3})(\d)/, "$1.$2");
