@@ -1,8 +1,11 @@
 import express from "express";
+import cors from "cors";
 import { EVENT_DATA, PLAYERS_DATA } from "./constants.mjs";
 
 const app = express();
 const port = 3000;
+
+app.use(cors());
 
 app.get("/event", (_, res) => {
   res.json(EVENT_DATA);
