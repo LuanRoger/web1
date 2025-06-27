@@ -7,8 +7,13 @@
   "type": "commonjs",
   "main": "index.mjs",
   "scripts": {
-    "dev": "nodemon index.mjs"
+    "dev": "nodemon ./server/index.mjs"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "nodemon": "^3.1.10"
+  }
 }
