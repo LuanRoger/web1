@@ -3,7 +3,7 @@ class EventModel {
     this.eventData = {
       name: "The Last Dance",
       date: "26 de Junho de 2025",
-      eventDate: "2025-06-24 18:00:00",
+      eventDate: "2025-07-24 18:00:00",
       location: "Spotify Camp Nou, Barcelona - Espanha",
       capacity: "99.354 espectadores",
       duration: "Aproximadamente 8 horas",
