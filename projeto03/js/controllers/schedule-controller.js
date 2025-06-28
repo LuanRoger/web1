@@ -9,8 +9,12 @@ class ScheduleController {
     this.renderSchedule();
   }
 
-  renderSchedule() {
-    const scheduleData = this.eventModel.getScheduleData();
-    this.scheduleView.renderSchedule(scheduleData);
+  async renderSchedule() {
+    try {
+      const scheduleData = await this.eventModel.getScheduleData();
+      this.scheduleView.renderSchedule(scheduleData);
+    } catch (error) {
+      console.error('Error rendering schedule:', error);
+    }
   }
 }

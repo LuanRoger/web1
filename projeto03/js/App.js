@@ -13,19 +13,25 @@ class AppController {
       this.initializeApp();
     }
   }
-
-  initializeApp() {
-    this.initializeModels();
+  async initializeApp() {
+    await this.initializeModels();
     this.initializeViews();
     this.initializeControllers();
   }
 
-  initializeModels() {
+  async initializeModels() {
     this.models.event = new EventModel();
     this.models.form = new FormModel();
-    this.models.countdown = new CountdownModel(
-      this.models.event.getEventData().eventDate
-    );
+
+    try {
+      await this.models.event.initializeData();
+      const eventData = await this.models.event.getEventData();
+      this.models.countdown = new CountdownModel(eventData.eventDate);
+    } catch (error) {
+      console.error("Error initializing models:", error);
+
+      this.models.countdown = new CountdownModel("2025-07-24 18:00:00");
+    }
   }
 
   initializeViews() {
@@ -78,9 +84,8 @@ class AppController {
     this.models.event.updateEventDate(newDate);
     this.controllers.countdown.changeEventDate(newDate);
   }
-
-  getEventData() {
-    return this.models.event.getEventData();
+  async getEventData() {
+    return await this.models.event.getEventData();
   }
 
   destroy() {

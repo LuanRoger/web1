@@ -9,11 +9,15 @@ class PlayerController {
     this.renderPlayers();
   }
 
-  renderPlayers() {
-    const playersData = this.eventModel.getPlayersData();
+  async renderPlayers() {
+    try {
+      const playersData = await this.eventModel.getPlayersData();
 
-    Object.keys(playersData).forEach((playerKey) => {
-      this.playerView.renderPlayerSection(playerKey, playersData[playerKey]);
-    });
+      Object.keys(playersData).forEach((playerKey) => {
+        this.playerView.renderPlayerSection(playerKey, playersData[playerKey]);
+      });
+    } catch (error) {
+      console.error('Error rendering players:', error);
+    }
   }
 }

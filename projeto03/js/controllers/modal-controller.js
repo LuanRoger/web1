@@ -39,10 +39,14 @@ class ModalController {
     });
   }
 
-  showModal() {
-    const eventData = this.eventModel.getEventData();
-    this.modalView.renderModalContent(eventData);
-    this.modalView.showModal();
+  async showModal() {
+    try {
+      const eventData = await this.eventModel.getEventData();
+      this.modalView.renderModalContent(eventData);
+      this.modalView.showModal();
+    } catch (error) {
+      console.error('Error showing modal:', error);
+    }
   }
 
   hideModal() {

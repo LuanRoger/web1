@@ -9,8 +9,12 @@ class AboutController {
     this.renderAbout();
   }
 
-  renderAbout() {
-    const aboutContent = this.eventModel.getAboutContent();
-    this.aboutView.renderAboutSection(aboutContent);
+  async renderAbout() {
+    try {
+      const aboutContent = await this.eventModel.getAboutContent();
+      this.aboutView.renderAboutSection(aboutContent);
+    } catch (error) {
+      console.error("Error rendering about section:", error);
+    }
   }
 }

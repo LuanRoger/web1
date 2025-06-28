@@ -10,12 +10,16 @@ class HeaderController {
     this.bindNavigationEvents();
   }
 
-  renderHeader() {
-    const playersData = this.eventModel.getPlayersData();
-    const navigationData = this.eventModel.getNavigationData();
+  async renderHeader() {
+    try {
+      const playersData = await this.eventModel.getPlayersData();
+      const navigationData = this.eventModel.getNavigationData();
 
-    this.headerView.renderPlayerComparison(playersData);
-    this.headerView.renderNavigation(navigationData);
+      this.headerView.renderPlayerComparison(playersData);
+      this.headerView.renderNavigation(navigationData);
+    } catch (error) {
+      console.error('Error rendering header:', error);
+    }
   }
 
   bindNavigationEvents() {
